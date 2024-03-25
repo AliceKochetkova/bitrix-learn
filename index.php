@@ -1,5 +1,6 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Блог");?>
 
     <div class="box1">
         <h3><a href="single.html">Making it look like readable English. Many desktop packages and web page</a></h3>
@@ -11,7 +12,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
                 <span class="link" title="link">(24)</span>
                 <a href="single.html"> </a>
             </div>
-            <a href="single.html"><img src="<?=SITE_TAMPLATE_PATH?>/images/img1.jpg"></a>
+            <a href="single.html"><img src="<?=DEFAULT_TEMPLATE_PATH?>/images/img1.jpg"></a>
         </div>
         <div class="data">
             <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorsLorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors</p>
@@ -29,7 +30,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
                 <span class="link" title="link">(24)</span>
                 <a href="single.html"> </a>
             </div>
-            <a href="single.html"><img src="<?= DEFAULT_TEMPLATE_PATH ?>/images/img2.jpg"></a>
+            <a href="single.html"><img src="<?=DEFAULT_TEMPLATE_PATH?>/images/img2.jpg"></a>
         </div>
         <div class="data">
             <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorsLorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors</p>
@@ -47,7 +48,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
                 <span class="link" title="link">(24)</span>
                 <a href="single.html"> </a>
             </div>
-            <a href="single.html"><img src="<?=SITE_TAMPLATE_PATH?>/images/img3.jpg"></a>
+            <a href="single.html"><img src="<?=DEFAULT_TEMPLATE_PATH?>/images/img3.jpg"></a>
         </div>
         <div class="data">
             <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorsLorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors</p>

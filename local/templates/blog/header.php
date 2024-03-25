@@ -31,18 +31,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="wrap">
             <div class="header-top-left">
                 <div class="logo">
-                    <a href="index.html"><h1>SHARE</h1>
+                    <a href="/"><h1>SHARE</h1>
                         <h2>The Blog</h2>
                     </a>
                 </div>
-                <div class="menu">
-                    <ul class="menu bounce">
-                        <li class="active"><a href="index.html" class="active">Home</a></li>
-                        <li><a href="single.html">About</a></li>
-                        <li><a href="single.html">Support</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <?php $APPLICATION->IncludeComponent("bitrix:menu", "menu", Array(
+	"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+		"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+		"DELAY" => "N",	// Откладывать выполнение шаблона меню
+		"MAX_LEVEL" => "1",	// Уровень вложенности меню
+		"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+		"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+		"MENU_CACHE_TYPE" => "N",	// Тип кеширования
+		"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+		"ROOT_MENU_TYPE" => "main",	// Тип меню для первого уровня
+		"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+		"COMPONENT_TEMPLATE" => "catalog_horizontal",
+		"MENU_THEME" => "site",	// Тема меню
+	),
+	false
+);?>
+                <div class="box1">
+                    <h3></h3>
                 </div>
+<!--                <div class="menu">-->
+<!--                    <ul class="menu bounce">-->
+<!--                        <li class="active"><a href="index.html" class="active">Home</a></li>-->
+<!--                        <li><a href="single.html">About</a></li>-->
+<!--                        <li><a href="single.html">Support</a></li>-->
+<!--                        <li><a href="contact.html">Contact</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
                 <div class="clear"></div>
             </div>
             <div class="header-top-right">
