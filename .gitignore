@@ -2,3 +2,5 @@
 /.idea
 /upload
 .htaccess
+/local/libs/vendor
+/local/libs/composer.lock
