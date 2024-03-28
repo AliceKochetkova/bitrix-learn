@@ -1,18 +1,39 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 </div>
 <div class="sidebar">
-    <div class="sidebar_top">
-        <h3>Blog Categories</h3>
-        <div class="sidebar_top_list">
-            <ul>
-                <li><a href="#"><span class="category-name">Design</span> <span class="count">(6)</span><div class="clear"></div></a></li>
-                <li><a href="#"><span class="category-name">Music</span> <span class="count">(22)</span><div class="clear"></div></a></li>
-                <li><a href="#"><span class="category-name">Technology</span> <span class="count">(44)</span><div class="clear"></div></a></li>
-                <li><a href="#"><span class="category-name">Nature</span> <span class="count">(32)</span><div class="clear"></div></a></li>
-                <li><a href="#"><span class="category-name">Fashion</span> <span class="count">(15)</span><div class="clear"></div></a></li>
-            </ul>
-        </div>
-    </div>
+    <?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "catalog", Array(
+	"ADDITIONAL_COUNT_ELEMENTS_FILTER" => "additionalCountFilter",	// Дополнительный фильтр для подсчета количества элементов в разделе
+		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
+		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"COUNT_ELEMENTS" => "Y",	// Показывать количество элементов в разделе
+		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",	// Показывать количество
+		"FILTER_NAME" => "sectionsFilter",	// Имя массива со значениями фильтра разделов
+		"HIDE_SECTIONS_WITH_ZERO_COUNT_ELEMENTS" => "N",	// Скрывать разделы с нулевым количеством элементов
+		"IBLOCK_ID" => "3",	// Инфоблок
+		"IBLOCK_TYPE" => "blog",	// Тип инфоблока
+		"SECTION_CODE" => "",	// Код раздела
+		"SECTION_FIELDS" => array(	// Поля разделов
+			0 => "",
+			1 => "",
+		),
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],	// ID раздела
+		"SECTION_URL" => "",	// URL, ведущий на страницу с содержимым раздела
+		"SECTION_USER_FIELDS" => array(	// Свойства разделов
+			0 => "",
+			1 => "",
+		),
+		"SHOW_PARENT_NAME" => "Y",	// Показывать название раздела
+		"TOP_DEPTH" => "2",	// Максимальная отображаемая глубина разделов
+		"VIEW_MODE" => "TEXT",	// Вид списка подразделов
+		"COMPONENT_TEMPLATE" => ".default",
+		"HIDE_SECTION_NAME" => "N"
+	),
+	false
+);?>
+
     <div class="popular-post">
         <h3>popular-posts</h3>
         <div class="post-grid">

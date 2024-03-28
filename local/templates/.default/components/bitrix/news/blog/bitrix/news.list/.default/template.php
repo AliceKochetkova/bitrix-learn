@@ -33,3 +33,7 @@ $this->setFrameMode(true);
         <div class="clear"></div>
     </div>
 <?php endforeach; ?>
+<?php
+if ($arParams['DISPLAY_BOTTOM_PAGER']): ?>
+    <?=$arResult['NAV_STRING'];?>
+<?php endif; ?>
