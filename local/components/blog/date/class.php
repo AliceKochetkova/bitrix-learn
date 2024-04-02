@@ -15,7 +15,6 @@ class Date extends CBitrixComponent
 
     public function executeComponent()
     {
-
         $this->arResult['DATE'] = $this->getDate();
         $this->includeComponentTemplate();
         return $this->arResult;
