@@ -2,8 +2,17 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arResult */
-
 ?>
+<form method="get">
+    <select class="country_select" name="country_filter">
+        <option value="">Фильтр стран</option>
+        <?php foreach ($arResult["COUNTRIES"] as $country):?>
+            <option value=<?=$country?>><?=$country?></option>
+        <?php endforeach?>
+    </select>
+    <input type="submit" value="Применить">
+</form>
+
 
 <table style="width:100%">
     <tr class="header-table">
@@ -29,5 +38,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
         font-weight: bold;
         font-style: italic;
         border:3px solid black;
+    }
+    .country_select {
+        margin: 20px 0
     }
 </style>

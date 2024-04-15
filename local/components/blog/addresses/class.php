@@ -27,11 +27,12 @@ class Address extends CBitrixComponent
             ["PROPERTY_COUNTRY" => "ASC"], $arFilter, false, false, $arSelect
         );
         while ($elem = $res->Fetch()) {
-            $addresses[$elem["ID"]]["ID"] = $elem["ID"];
-            $addresses[$elem["ID"]]["NAME"] = $elem["NAME"];
-            $addresses[$elem["ID"]]["CITY"] = $elem["PROPERTY_CITY_VALUE"];
-            $addresses[$elem["ID"]]["COUNTRY"] = $elem["PROPERTY_COUNTRY_VALUE"];
-            $addresses[$elem["ID"]]["STREET"] = $elem["PROPERTY_STREET_VALUE"];
+            $addresses["COUNTRIES"][$elem["PROPERTY_COUNTRY_VALUE"]] = $elem["PROPERTY_COUNTRY_VALUE"];
+            $addresses["ADDRESSES"][$elem["ID"]]["ID"] = $elem["ID"];
+            $addresses["ADDRESSES"][$elem["ID"]]["NAME"] = $elem["NAME"];
+            $addresses["ADDRESSES"][$elem["ID"]]["CITY"] = $elem["PROPERTY_CITY_VALUE"];
+            $addresses["ADDRESSES"][$elem["ID"]]["COUNTRY"] = $elem["PROPERTY_COUNTRY_VALUE"];
+            $addresses["ADDRESSES"][$elem["ID"]]["STREET"] = $elem["PROPERTY_STREET_VALUE"];
 
         };
         return $addresses;
@@ -39,7 +40,7 @@ class Address extends CBitrixComponent
 
     public function executeComponent()
     {
-        $this->arResult["ADDRESSES"] = $this->getAddresses();
+        $this->arResult = $this->getAddresses();
         $this->includeComponentTemplate();
         return $this->arResult;
     }
