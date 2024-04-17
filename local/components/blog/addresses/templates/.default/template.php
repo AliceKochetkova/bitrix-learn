@@ -3,11 +3,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arResult */
 ?>
-<form method="get">
+<form class="country_select" method="get" action="/about">
     <select class="country_select" name="country_filter">
         <option value="">Фильтр стран</option>
         <?php foreach ($arResult["COUNTRIES"] as $country):?>
-            <option value=<?=$country?>><?=$country?></option>
+            <option <?= $_GET["country_filter"] === $country ? 'selected' : '' ?> value=<?=$country?>><?=$country?></option>
         <?php endforeach?>
     </select>
     <input type="submit" value="Применить">
@@ -40,6 +40,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
         border:3px solid black;
     }
     .country_select {
-        margin: 20px 0
+        margin: 30px 0
     }
 </style>

@@ -18,21 +18,39 @@ class Address extends CBitrixComponent
         return parent::onPrepareComponentParams($arParams);
     }
 
-    public function getAddresses()
+    private function getCountries(): array
+    {
+        $countries = [];
+        $arFilter = ["IBLOCK_ID" => 4, "ACTIVE" => "Y"];
+        $arSelect = ["PROPERTY_COUNTRY"];
+
+        $result = CIBlockElement::GetList(
+            Array(), $arFilter, false, false, $arSelect);
+
+        while ($elem = $result->Fetch()) {
+            $countries[$elem["PROPERTY_COUNTRY_VALUE"]] = $elem["PROPERTY_COUNTRY_VALUE"];
+        }
+
+        return $countries;
+    }
+    private function getAddresses(): array
     {
         $addresses = [];
         $arFilter = ["IBLOCK_ID" => 4, "ACTIVE" => "Y"];
+        if ($_GET["country_filter"]) {
+            $arFilter["PROPERTY_COUNTRY"] = $_GET["country_filter"];
+        }
         $arSelect = ["ID", "NAME", "PROPERTY_CITY", "PROPERTY_COUNTRY", "PROPERTY_STREET"];
+
         $res = CIBlockElement::GetList(
             ["PROPERTY_COUNTRY" => "ASC"], $arFilter, false, false, $arSelect
         );
         while ($elem = $res->Fetch()) {
-            $addresses["COUNTRIES"][$elem["PROPERTY_COUNTRY_VALUE"]] = $elem["PROPERTY_COUNTRY_VALUE"];
-            $addresses["ADDRESSES"][$elem["ID"]]["ID"] = $elem["ID"];
-            $addresses["ADDRESSES"][$elem["ID"]]["NAME"] = $elem["NAME"];
-            $addresses["ADDRESSES"][$elem["ID"]]["CITY"] = $elem["PROPERTY_CITY_VALUE"];
-            $addresses["ADDRESSES"][$elem["ID"]]["COUNTRY"] = $elem["PROPERTY_COUNTRY_VALUE"];
-            $addresses["ADDRESSES"][$elem["ID"]]["STREET"] = $elem["PROPERTY_STREET_VALUE"];
+            $addresses[$elem["ID"]]["ID"] = $elem["ID"];
+            $addresses[$elem["ID"]]["NAME"] = $elem["NAME"];
+            $addresses[$elem["ID"]]["CITY"] = $elem["PROPERTY_CITY_VALUE"];
+            $addresses[$elem["ID"]]["COUNTRY"] = $elem["PROPERTY_COUNTRY_VALUE"];
+            $addresses[$elem["ID"]]["STREET"] = $elem["PROPERTY_STREET_VALUE"];
 
         };
         return $addresses;
@@ -40,7 +58,8 @@ class Address extends CBitrixComponent
 
     public function executeComponent()
     {
-        $this->arResult = $this->getAddresses();
+        $this->arResult["ADDRESSES"] = $this->getAddresses();
+        $this->arResult["COUNTRIES"] = $this->getCountries();
         $this->includeComponentTemplate();
         return $this->arResult;
     }
