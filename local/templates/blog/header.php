@@ -54,14 +54,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="box1">
                     <h3></h3>
                 </div>
-<!--                <div class="menu">-->
-<!--                    <ul class="menu bounce">-->
-<!--                        <li class="active"><a href="index.html" class="active">Home</a></li>-->
-<!--                        <li><a href="single.html">About</a></li>-->
-<!--                        <li><a href="single.html">Support</a></li>-->
-<!--                        <li><a href="contact.html">Contact</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
                 <div class="clear"></div>
             </div>
             <div class="header-top-right">
