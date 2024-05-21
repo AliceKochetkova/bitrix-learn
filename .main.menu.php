@@ -8,8 +8,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"About", 
-		"/about/", 
+		"Services",
+		"/services/",
 		Array(), 
 		Array(), 
 		"" 

@@ -3,7 +3,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arResult */
 ?>
-<form class="country_select" method="get" action="/about">
+<form class="country_select" method="get">
     <select name="country_filter">
         <option value="">Фильтр стран</option>
         <?php foreach ($arResult["COUNTRIES"] as $country):?>
