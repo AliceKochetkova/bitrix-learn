@@ -2,22 +2,19 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arResult */
-dump($arResult)
-?>
 
+?>
 <table style="width:100%">
     <tr class="header-table">
-        <th>Наименование</th>
+        <th>Наименование услуги</th>
         <th>Стоимость</th>
-        <th>Предоставляется</th>
-        <th>Город</th>
+        <th>Города</th>
     </tr>
     <?php foreach ($arResult['SERVICES'] as $service): ?>
         <tr>
             <td><?= $service['NAME']?></td>
             <td><?= $service['COST']?></td>
-            <td><?= $service['RENDER']?></td>
-            <td><?= $service['CITY']?></td>
+            <td><?= implode(', ' , $service['CITIES'])?></td>
         </tr>
     <?php endforeach;?>
 </table>
